@@ -1,0 +1,9 @@
+<div class="content" style="text-align: center;">
+	<?php foreach ($commiters as $commiter) : ?>
+		<img src="<?php echo $commiter['img']?>"
+			height="<?php echo $commiter['size']?>"
+			alt="<?php echo $commiter['name']?>"
+			title="<?php echo $commiter['name']?>"
+		/>
+	<?php endforeach; ?>
+</div>

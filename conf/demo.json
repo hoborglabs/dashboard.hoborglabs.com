@@ -1,0 +1,75 @@
+{
+    "template": "demo",
+    "ajaxTemplate": "demo-ajax",
+    "widgets": [
+        {
+            "name": "Page Visits (day)",
+            "footer": "One day delay.",
+            "size": "span4",
+            "php": "hoborg/rate-meter.php",
+            "conf": {
+                "data": "data01.json"
+            }
+        },
+        {
+            "name": "New Users (wekly)",
+            "footer": "Lorem ipsum.",
+            "size": "span4",
+            "php": "hoborg/rate-meter.php",
+            "conf": {
+                "data": "data02.json"
+            }
+        },
+        {
+            "name": "Test",
+            "footer": "Lorem Ipsum",
+            "size": "span4",
+            "php": "hoborg/rate-meter.php",
+            "conf": {
+                "data": "data03.json"
+            }
+        },
+        {
+            "name": "Test",
+            "footer": "Lorem Ipsum",
+            "size": "span4",
+            "php": "hoborg/rate-meter.php",
+            "conf": {
+                "data": "data01.json"
+            }
+        },
+        {
+            "name": "Latest Code Commiters",
+            "footer": "from last 100 commits",
+            "size": "expandable span8",
+            "php": "commiters.php",
+            "reload": "10"
+        },
+        {
+            "name": "Important Message",
+            "footer": "This is example footer text",
+            "size": "expandable span8",
+            "body": "<div class='content'>This is static message</div>"
+        },
+        {
+            "name": "Project Alpha Merge Queue",
+            "footer": "from last 100 commits",
+            "size": "expandable span4",
+            "php": "merge-queue.php",
+            "conf": {
+                "data": "queue01.json"
+            },
+            "reload": "2"
+        },
+        {
+            "name": "Project Beta Merge Queue",
+            "footer": "from last 100 commits",
+            "size": "expandable span4",
+            "php": "merge-queue.php",
+            "conf": {
+                "data": "queue02.json"
+            },
+            "reload": "5"
+        }
+    ]
+}

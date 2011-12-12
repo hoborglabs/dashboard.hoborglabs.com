@@ -1,0 +1,143 @@
+<html itemscope itemtype="http://schema.org/Product">
+	<head>
+		<meta itemprop="name" content="Hoborg Labs Dashboard">
+		<meta itemprop="description" content="Quick and easy way to add dynamic dashboard to your project!">
+
+		<?php if ('production' == APP_ENV) : ?>
+		<script type="text/javascript">
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-26727070-1']);
+			_gaq.push(['_trackPageview']);
+	
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+	
+			(function() {
+				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+				po.src = 'https://apis.google.com/js/plusone.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			})();
+		</script>
+		<?php endif; ?>
+		<link href="/styles/css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+		<link href="/styles/css/layout.css" media="all" rel="stylesheet" type="text/css" />
+		
+		<link href="/dashboard/styles/templates/hoborg/css/dashboard.css" media="all" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+		<script type="text/javascript" src="/dashboard/js/jquery/jquery.mustache.js"></script>
+		<script type="text/javascript" src="/dashboard/js/jquery/jquery.masonry.min.js"></script>
+		<script type="text/javascript" src="/dashboard/js/hoborg/bus.js"></script>
+		<script type="text/javascript" src="/dashboard/js/hoborg/jquery.widgetManager.js"></script>
+		<script type="text/javascript">
+		$(document).ready(function() {
+			var d_tpl = <?php echo json_encode(file_get_contents(__DIR__ . '/hoborg-widget.jhtml')); ?>;
+
+			$('.dashboard.container').masonry({
+				itemSelector: '.widget',
+				columnWidth: 10,
+				isFitWidth: true,
+				isAnimated: true
+			});
+
+			$(document).widgetManager({
+				conf: 'demo',
+				callback: function(widget) { $('.dashboard.container').masonry('reload'); },
+				template: d_tpl
+			});
+
+			<?php foreach ($widgets as $index => & $widget) : ?>
+				<?php if (!empty($widget['reload'])) : ?>
+					<?php
+					$widget['tick'] = $widget['reload'] * 1000;
+					$widget['id'] = $index;
+					?>
+					$('#widget-<?php echo $index; ?>').data('config', <?php echo json_encode($widget); ?>);
+					$(document).widgetManager('addWidget', $('#widget-<?php echo $index; ?>'));
+				<?php endif; ?>
+			<?php endforeach; unset($widget); ?>
+
+			$(document).widgetManager('start');
+		});
+		</script>
+
+		<?php echo $head; ?>
+	</head>
+	<body>
+		<a href="http://github.com/hoborglabs/Dashboard"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+
+		<div id="header" class="container">
+			<div class="row">
+				<div class="span4">
+					<h1>HoborgLabs Dashoboard</h1>
+				</div>
+				<div class="span12">
+					<ul class="tabs" style="margin-top: 50px;">
+						<?php
+						if (!isset($active_link)) {
+							$active_link = '/';
+						}
+						$links = array(
+							'/' => 'Home',
+							'/doc' => 'Documentation',
+							'/demo' => 'Demo',
+						);
+						?>
+						<?php foreach ($links as $href => $title) : $class = ''; ?>
+							<?php if ($active_link == $href) { $class = 'active'; } ?>
+							<li class="<?php echo $class; ?>">
+								<a href="<?php echo $href; ?>"><?php echo $title; ?></a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+<div class="container">
+            <div class="row">
+                <div class="span16"><p><b>Resize</b> your browser window, and see how widgets adjusts to your screen size.</p>
+                </div>
+            </div>
+        </div>
+
+		<div id="body" class="dashboard container">
+			<?php foreach ($widgets as $id => & $widget) : ?>
+				<?php
+				$widget['name'] = empty($widget['name']) ? 'No Name' : $widget['name'];
+				$widget['footer'] = empty($widget['footer']) ? '' : $widget['footer'];
+				$widget['body'] = empty($widget['body']) ? '' : $widget['body'];
+				$widget['size'] = empty($widget['size']) ? 'one-third' : $widget['size'];
+
+				$class = 'span8';
+				switch($widget['size']) {
+					case 'message':
+						$class = 'short span8';
+						break;
+
+					case 'full':
+						$class = 'span16';
+						break;
+
+					default:
+						$class = $widget['size'];
+						break;
+				}
+				?>
+				<div class="widget <?echo $class?>" id="widget-<?php echo $id; ?>">
+					<div class="header"><?php echo $widget['name']; ?></div>
+					<div class="body"><?php echo render_widget($widget); ?></div>
+					<?php if (!empty($widget['footer'])) : ?>
+						<div class="footer"><?php echo $widget['footer']; ?></div>
+					<?php endif; ?>
+				</div>
+			<?php endforeach; unset($widget); ?>
+		</div>
+
+		<div id="footer" class="container">
+			<p>power by <a href="http://hoborglabs.com">hoborglabs</a></p>
+		</div>
+	</body>
+</html>
