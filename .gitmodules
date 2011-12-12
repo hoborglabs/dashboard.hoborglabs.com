@@ -1,3 +1,6 @@
 [submodule "vendor/markdown"]
 	path = vendor/markdown
 	url = https://github.com/wolfie/php-markdown.git
+[submodule "vendor/dashboard"]
+	path = vendor/dashboard
+	url = git@github.com:hoborglabs/Dashboard.git
