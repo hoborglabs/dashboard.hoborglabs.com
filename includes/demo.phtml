@@ -22,8 +22,11 @@
 			})();
 		</script>
 		<?php endif; ?>
-		<link href="/styles/css/bootstrap.css" media="all" rel="stylesheet" type="text/css" />
+
+		<link href="/styles/css/common.css" media="all" rel="stylesheet" type="text/css" />
 		<link href="/styles/css/layout.css" media="all" rel="stylesheet" type="text/css" />
+		<link href="/styles/css/handheld.css" media="handheld, only screen and (max-device-width: 700px)" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
 		
 		<link href="/dashboard/styles/templates/hoborg/css/dashboard.css" media="all" rel="stylesheet" type="text/css" />
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
@@ -70,11 +73,14 @@
 
 		<div id="header" class="container">
 			<div class="row">
-				<div class="span4">
-					<h1>HoborgLabs Dashoboard</h1>
+				<div class="beta">v. BETA</div>
+				
+				<div class="logo">
+					<h1><b>H</b>oborg<b>L</b>abs <span>Dashoboard</span></h1>
 				</div>
-				<div class="span12">
-					<ul class="tabs" style="margin-top: 50px;">
+				
+				<div class="navigation">
+					<ul class="tabs" style="margin-top: 30px;">
 						<?php
 						if (!isset($active_link)) {
 							$active_link = '/';

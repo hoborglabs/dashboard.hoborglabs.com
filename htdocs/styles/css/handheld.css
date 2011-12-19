@@ -1,0 +1,119 @@
+
+.media-grid img {
+	width: 300px;
+	height: auto;
+}
+
+.fork-me,
+.fork-me * {
+    display: none;
+}
+
+[class*="span"] {
+  float: none;
+  margin-left: 0px;
+}
+
+    .container .row .side {
+        width: 100%;
+        float: none;
+        margin-left: 0px;
+    }
+    
+    .container .row .content {
+        width: 100%;
+        float: none;
+        margin-left: 0px;
+    }
+
+    #header {
+        width: 100%;
+    }
+        #header h1 {
+            margin: 0px auto;
+            padding: 10px;
+            font-size: 200%;
+        }
+    
+        #header .logo {
+           width: 220px;
+           margin: 0px auto;
+        }
+        
+        #header .navigation {
+	       width: 100%;
+	       float: left;
+	       clear: both;
+	       margin: 0px;
+	    }
+        
+        #header .beta {
+            padding: 4px 10px; 
+            text-align: center;
+            width: 100px;
+            left: 0px;
+            margin-left: 50%;
+        }
+    
+    #body {
+        width: 100%;
+    }
+        #body .row {
+        }
+        
+        #body .row .side {
+            width: 100%;
+            margin-left: 20px;
+        }
+        
+        #body .row .content {
+            width: 100%px;
+            margin-left: 20px;
+        }
+        
+    #footer {
+        width: 100%;
+    }
+
+/* Selection colours (easy to forget) */
+
+::selection         {background: rgb(255,255,158);}
+::-moz-selection    {background: rgb(255,255,158);}
+img::selection      {background: transparent;}
+img::-moz-selection {background: transparent;}
+body {-webkit-tap-highlight-color: rgb(255,255,158);}
+
+
+/*      Tablet Layout: 768px.
+        Gutters: 24px.
+        Outer margins: 28px.
+        Inherits styles from: Default Layout.
+-----------------------------------------------------------------
+cols    1     2      3      4      5      6      7      8
+px      68    160    252    344    436    528    620    712    */
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+    .container .row {
+        width: 712px;
+    }
+}
+
+/*      Wide Mobile Layout: 480px.
+        Gutters: 24px.
+        Outer margins: 22px.
+        Inherits styles from: Default Layout, Mobile Layout.
+------------------------------------------------------------
+cols    1     2      3      4      5
+px      68    160    252    344    436    */
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .container .row {
+        width: 436px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .container .row {
+        width: 302px;
+    }
+}

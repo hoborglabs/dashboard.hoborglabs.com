@@ -11,26 +11,32 @@ $active_link = '/doc';
 $body = ''; //file_get_contents(__DIR__ . '/../../includes/doc/index.html');
 
 $data_dir = __DIR__ . '/../../includes/doc/';
-foreach ($body_parts as $body_part) {
-	$body .= '<div class="row">';
+$class = '';
+foreach ($body_parts as $i => $body_part) {
+	if ($i % 2) {
+		$class = 'container highlight';
+	} else {
+		$class = 'container';
+	}
+	$body .= '<div class="'.$class.'"><div class="row">';
 
 	if (!empty($body_part['side'])) {
-		$body .= '<div class="span4">';
+		$body .= '<div class="side">';
 		$body .= Markdown(file_get_contents($data_dir . $body_part['side']));
 		$body .= '</div>';
 	} else {
-		$body .= '<div class="span4"></div>';
+		$body .= '<div class="side"></div>';
 	}
 
 	if (!empty($body_part['content'])) {
-		$body .= '<div class="span12">';
+		$body .= '<div class="content">';
 		$body .= Markdown(file_get_contents($data_dir . $body_part['content']));
 		$body .= '</div>';
 	} else {
-		$body .= '<div class="span12"></div>';
+		$body .= '<div class="content"></div>';
 	}
 
-	$body .= '</div>';
+	$body .= '</div></div>';
 }
 
 include_once __DIR__ . '/../../includes/base.phtml';
