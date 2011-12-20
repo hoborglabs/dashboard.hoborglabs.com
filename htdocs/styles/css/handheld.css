@@ -9,6 +9,15 @@
     display: none;
 }
 
+.tabs > li > a {
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    font-size: 20px;
+    line-height: 36px;
+    margin-right: 2px;
+    padding: 0 15px;
+}
+
 [class*="span"] {
   float: none;
   margin-left: 0px;
@@ -27,7 +36,7 @@
     }
 
     #header {
-        width: 100%;
+        height: 137px;
     }
         #header h1 {
             margin: 0px auto;
@@ -36,8 +45,15 @@
         }
     
         #header .logo {
-           width: 220px;
+           width: 100%;
            margin: 0px auto;
+           height: auto;
+           padding: 0px 0px 10px 0px;
+        }
+        
+        #header .logo h1 {
+            height: auto;
+            padding: 14px 10px 6px;
         }
         
         #header .navigation {
@@ -51,8 +67,9 @@
             padding: 4px 10px; 
             text-align: center;
             width: 100px;
-            left: 0px;
-            margin-left: 50%;
+            right: 20px;
+            left: auto;
+            margin-left: 0;
         }
     
     #body {
@@ -83,6 +100,9 @@ img::selection      {background: transparent;}
 img::-moz-selection {background: transparent;}
 body {-webkit-tap-highlight-color: rgb(255,255,158);}
 
+    .container .row {
+        width: auto;
+    }
 
 /*      Tablet Layout: 768px.
         Gutters: 24px.
@@ -94,7 +114,9 @@ px      68    160    252    344    436    528    620    712    */
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
     .container .row {
-        width: 712px;
+       width: 97%;
+       margin-left: auto;
+       margin-right: auto;
     }
 }
 
@@ -108,12 +130,15 @@ px      68    160    252    344    436    */
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
     .container .row {
-        width: 436px;
+       width: 97%;
+       margin-left: auto;
+       margin-right: auto;
     }
 }
 
 @media only screen and (max-width: 480px) {
     .container .row {
-        width: 302px;
+       width: 97%;
+       margin-left: auto;
+       margin-right: auto;
     }
-}
