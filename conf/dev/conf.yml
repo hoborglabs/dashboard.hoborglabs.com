@@ -1,0 +1,17 @@
+imports:
+  - { resource: parameters.ini }
+  - { resource: /var/www/vendors/HoborgDisplayService/application/DisplayService/conf/conf.yml }
+
+web_profiler:
+  toolbar: true
+  intercept_redirects: false
+
+monolog:
+  handlers:
+    main:
+      type:  stream
+      path:  %kernel.logs_dir%/%kernel.environment%.log
+      level: warning
+    firephp:
+      type:  firephp
+      level: info

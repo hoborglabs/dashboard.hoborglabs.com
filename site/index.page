@@ -1,0 +1,47 @@
+<page name="page">
+    <component name="header">
+    </component>
+    <!-- 
+    <component name="body">
+        <data>
+            <type>image</type>
+        </data>
+        <component name="image">
+        </component>
+    </component>
+    -->
+    <component name="body">
+        <data>
+            <type>highlight</type>
+        </data>
+        <component name="paragraph">
+            <data>
+                <size>span-one-third</size>
+                <text><![CDATA[
+                    <h3>Quick and Simple Setup</h3>
+                    <p>just download from github, and you are ready to go.</p>
+                ]]></text>
+            </data>
+        </component>
+        <component name="paragraph">
+            <data>
+                <size>span-one-third</size>
+                <text><![CDATA[
+                    <h3>PHP, CGI and Static Files!</h3>
+                    <p>You can write your widgets in any language you want - just make sure to return JSON string.</p>
+                ]]></text>
+            </data>
+        </component>
+        <component name="paragraph">
+            <data>
+                <size>span-one-third</size>
+                <text><![CDATA[
+                    <h3>Out-Of-The-Box Functionalities</h3>
+                    <p>We provide basic support for redmine, jenkins and github.</p>
+                ]]></text>
+            </data>
+        </component>
+    </component>
+    
+    <component name="footer" />
+</page>
