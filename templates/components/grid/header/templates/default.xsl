@@ -16,15 +16,11 @@
                 
                 <div class="navigation">
                     <ul class="tabs" style="margin-top: 30px;">
-                            <li class="active">
-                                <a href="/">Home</a>
+                        <xsl:for-each select="data/navigation/page">
+                            <li class="{@class}">
+                                <a href="{@href}"><xsl:value-of select="." /></a>
                             </li>
-                            <li class="">
-                                <a href="/doc">Documentation</a>
-                            </li>
-                            <li class="">
-                                <a href="/demo">Demo</a>
-                            </li>
+                        </xsl:for-each>
                     </ul>
                 </div>
             </div>

@@ -1,5 +1,12 @@
 <page name="page">
     <component name="header">
+        <data>
+            <navigation>
+                <page href="/">Home</page>
+                <page href="/doc" class="active">Documentation</page>
+                <page href="/demo">Demo</page>
+            </navigation>
+        </data>
     </component>
     <!-- 
     <component name="body">
@@ -150,6 +157,4 @@ return $widget;
             </data>
         </component>
     </component>
-
-    <component name="footer" />
 </page>

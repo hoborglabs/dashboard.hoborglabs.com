@@ -1,15 +1,30 @@
 <page name="page">
     <component name="header">
+        <data>
+            <navigation>
+                <page href="/" class="active">Home</page>
+                <page href="/doc">Documentation</page>
+                <page href="/demo">Demo</page>
+            </navigation>
+        </data>
     </component>
-    <!-- 
     <component name="body">
         <data>
             <type>image</type>
         </data>
-        <component name="image">
+        <component name="media-grid">
+            <data>
+                <media type="img">
+                    <img src="/images/dashboard_01.png"
+                        thumb="/images/dashboard_01.png"
+                        alt="Dashboard in Action"
+                        width="930"
+                        height="366"
+                    />
+                </media>
+            </data>
         </component>
     </component>
-    -->
     <component name="body">
         <data>
             <type>highlight</type>
@@ -42,6 +57,4 @@
             </data>
         </component>
     </component>
-    
-    <component name="footer" />
 </page>
