@@ -7,4 +7,6 @@
     
     <component name="paragraph" folder="components/modules/paragraph" />
     <component name="media-grid" folder="components/modules/media-grid" />
+    
+    <component name="google-analytics" folder="components/modules/google/analytics" />
 </templates>

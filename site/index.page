@@ -1,4 +1,10 @@
 <page name="page">
+    <component name="google-analytics">
+        <data>
+            <enabled>0</enabled>
+            <account>UA-26727070-1</account>
+        </data>
+    </component>
     <component name="header">
         <data>
             <navigation>
