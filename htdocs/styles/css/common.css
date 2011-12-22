@@ -507,3 +507,32 @@ pre code {
     background-color: rgb(232,232,232);
     border-bottom: 1px solid #CCC;
 }
+
+.container {
+    width: 100%;
+    clear: both;
+    padding: 18px 0px;
+}
+
+#header {
+    background-color: rgb(232,232,232);
+    border-bottom: 1px #DDD solid;
+    margin-bottom: 28px;
+    padding: 0px 0px;
+}
+    #header .logo {
+       background-color: #7EA7E3;
+       text-align: center;
+    }
+       #header .logo h1 {
+           background-color: #5181C7;
+           color: #FFF;
+           border-bottom: 1px solid #3E67A3;
+       }
+    #header .beta {
+        left: -150px;
+        margin-left: 50%;
+        padding: 4px 0px;
+        position: absolute;
+        text-align: center;
+    }

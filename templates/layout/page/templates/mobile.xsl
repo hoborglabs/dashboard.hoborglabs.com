@@ -25,7 +25,8 @@
                 <meta itemprop="description" content="Quick and easy way to add dynamic dashboard to your project!" />
 
                 <link href="/styles/css/common.css" media="all" rel="stylesheet" type="text/css" />
-		        <link href="/styles/css/layout.css" media="all" rel="stylesheet" type="text/css" />
+		        <link href="/styles/css/handheld.css" media="all" rel="stylesheet" type="text/css" />
+		        <meta name="viewport" content="initial-scale = 1.0,maximum-scale = 1.0" />
             </head>
 
             <body>

@@ -1,6 +1,6 @@
 imports:
-  - { resource: parameters.ini }
   - { resource: /var/www/vendors/HoborgDisplayService/application/DisplayService/conf/conf.yml }
+  - { resource: parameters.ini }
 
 web_profiler:
   toolbar: true

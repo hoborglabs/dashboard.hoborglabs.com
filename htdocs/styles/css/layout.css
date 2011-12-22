@@ -5,11 +5,6 @@
     border: 0;
 }
 
-.container {
-	width: 100%;
-	clear: both;
-	padding: 18px 0px;
-}
 .container .row {
     width: 940px;
     margin: 0px auto 0px;
@@ -22,10 +17,6 @@
 
 #header {
 	height: 94px;
-	background-color: rgb(232,232,232);
-	border-bottom: 1px #DDD solid;
-	margin-bottom: 28px;
-	padding: 0px 0px;
 }
 
 	#header h1 {
@@ -45,14 +36,9 @@
 	   width: 220px;
 	   float: left;
 	   margin-left: 0px;
-	   background-color: #7EA7E3;
-	   text-align: center;
 	   height: 104px;
 	}
 	   #header .logo h1 {
-	       background-color: #5181C7;
-	       color: #FFF;
-	       border-bottom: 1px solid #3E67A3;
 	       height: 74px;
 	   }
 	
@@ -60,14 +46,6 @@
 	   width: 620px;
 	   float: left;
 	   margin: 26px 0 0 100px;
-	}
-	
-	#header .beta {
-	    left: -150px;
-	    margin-left: 50%;
-	    padding: 4px 0px;
-	    position: absolute;
-	    text-align: center;
 	}
 
 #body {
