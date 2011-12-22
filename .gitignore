@@ -1,4 +1,7 @@
+##
+# IDEs and editors ignore patterns
 .buildpath
+.externalToolBuilders
 .project
 .settings/
 *.swp
