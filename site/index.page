@@ -85,8 +85,8 @@
                 <text><![CDATA[
                     <h3>It's that clean & easy!</h3>
                     <ol>
-                        <li>download dashboard.phar.</li>
-                        <li>download assets-dashboard.tgz and unzip in your host public folder</li>
+                        <li>download <a href="/downloads/dashboard.phar">dashboard.phar</a>.</li>
+                        <li>download <a href="/downloads/dashboard-assets.tgz">dashboard-assets.tgz</a> and unzip in your host public folder</li>
                         <li>create dashboard.php</li>
                     </ol>
                     <script src="https://gist.github.com/1512137.js?file=dashboard.php"></script>
