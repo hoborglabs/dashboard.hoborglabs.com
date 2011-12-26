@@ -448,6 +448,9 @@ pre code {
 .span-one-third {
   width: 300px;
 }
+.span-full-width {
+  width: 940px;
+}
 .container {
   width: 940px;
   margin-left: auto;

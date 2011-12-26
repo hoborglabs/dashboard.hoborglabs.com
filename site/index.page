@@ -39,8 +39,11 @@
             <data>
                 <size>span-one-third</size>
                 <text><![CDATA[
-                    <h3>Quick and Simple Setup</h3>
-                    <p>just download from github, and you are ready to go.</p>
+                    <h3>We Believe in Simplicity!</h3>
+                    <p>We will continue to make it as easy as possible to introduce the Dashboard in your organization.
+                    We will also make sure that there will be as little technical constrains as possible - we want all
+                    devs in your area to contribute - it's super easy!
+                    </p>
                 ]]></text>
             </data>
         </component>
@@ -48,8 +51,11 @@
             <data>
                 <size>span-one-third</size>
                 <text><![CDATA[
-                    <h3>PHP, CGI and Static Files!</h3>
-                    <p>You can write your widgets in any language you want - just make sure to return JSON string.</p>
+                    <h3>Distributed & JSON-ified widgets.</h3>
+                    <p>Each and every <em>developer</em> in your organization can contribute to the dashboard. It's 
+                    easy as returning JSON object over http!</p>
+                    <p>Because <em>widget</em> is a simply JSON object, you can write your widgets in any language 
+                    you want. The only limit is your imagination!</p>
                 ]]></text>
             </data>
         </component>
@@ -57,10 +63,36 @@
             <data>
                 <size>span-one-third</size>
                 <text><![CDATA[
-                    <h3>Out-Of-The-Box Functionalities</h3>
-                    <p>We provide basic support for redmine, jenkins and github.</p>
+                    <h3>Out-Of-The-Box Functionalities.</h3>
+                    <p>Hoborg Labs provide default set of widgets and tools for some commonly use software 
+                    packages like git, redmine, jenkins or github.</p>
+                    <p>We use {{ mustache }} JS templates and jQuery. We recommend 
+                    <a href="http://www.rgraph.net/">RGraph</a> for simple js graphs and 
+                    <a href="http://graphite.wikidot.com">Graphite</a> for more dynamic charts.
+                    </p>
                 ]]></text>
             </data>
         </component>
     </component>
+    
+    <component name="body">
+        <data>
+            <type></type>
+        </data>
+        <component name="paragraph">
+            <data>
+                <size>span-full-width</size>
+                <text><![CDATA[
+                    <h3>It's that clean & easy!</h3>
+                    <ol>
+                        <li>download dashboard.phar.</li>
+                        <li>download assets-dashboard.tgz and unzip in your host public folder</li>
+                        <li>create dashboard.php</li>
+                    </ol>
+                    <script src="https://gist.github.com/1512137.js?file=dashboard.php"></script>
+                ]]></text>
+            </data>
+        </component>
+    </component>
+    
 </page>
