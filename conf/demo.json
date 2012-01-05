@@ -1,41 +1,41 @@
 {
     "template": "demo",
-    "ajaxTemplate": "demo-ajax",
+    "public": "/dashboard",
     "widgets": [
         {
             "name": "Page Visits (day)",
             "footer": "One day delay.",
             "size": "span4",
-            "php": "hoborg/rate-meter.php",
+            "php": "hoborg/rate-meter/widget.php",
             "conf": {
-                "data": "data01.json"
+                "data": "hoborg/data01.json"
             }
         },
         {
             "name": "New Users (wekly)",
             "footer": "Lorem ipsum.",
             "size": "span4",
-            "php": "hoborg/rate-meter.php",
+            "php": "hoborg/rate-meter/widget.php",
             "conf": {
-                "data": "data02.json"
+                "data": "hoborg/data02.json"
             }
         },
         {
             "name": "Test",
             "footer": "Lorem Ipsum",
             "size": "span4",
-            "php": "hoborg/rate-meter.php",
+            "php": "hoborg/rate-meter/widget.php",
             "conf": {
-                "data": "data03.json"
+                "data": "hoborg/data03.json"
             }
         },
         {
             "name": "Test",
             "footer": "Lorem Ipsum",
             "size": "span4",
-            "php": "hoborg/rate-meter.php",
+            "php": "hoborg/rate-meter/widget.php",
             "conf": {
-                "data": "data01.json"
+                "data": "hoborg/data01.json"
             }
         },
         {
@@ -43,7 +43,18 @@
             "footer": "from last 100 commits",
             "size": "expandable span8",
             "php": "commiters.php",
-            "reload": "10"
+            "tick": "10"
+        },
+        {
+            "name": "Jenkins Job Status",
+            "footer": "hoborg/jenkins/widget.php",
+            "size": "span8 autoHeight",
+            "body" : "Loading Content...",
+            "tick" : 30,
+            "php": "hoborg/jenkins/widget.php",
+            "conf" : {
+                "data" : "hoborg/jobs.json"
+            }
         },
         {
             "name": "Important Message",
@@ -59,7 +70,7 @@
             "conf": {
                 "data": "queue01.json"
             },
-            "reload": "2"
+            "tick": "2"
         },
         {
             "name": "Project Beta Merge Queue",
@@ -69,7 +80,7 @@
             "conf": {
                 "data": "queue02.json"
             },
-            "reload": "5"
+            "tick": "5"
         }
     ]
 }

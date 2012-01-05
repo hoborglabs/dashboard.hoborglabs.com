@@ -1,5 +1,6 @@
 <templates>
     <page name="page"   folder="layout/page" />
+    <component name="page" folder="layout/page" />
     
     <component name="header" folder="components/grid/header" />
     <component name="body" folder="components/grid/body" />

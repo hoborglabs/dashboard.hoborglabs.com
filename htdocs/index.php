@@ -1,6 +1,7 @@
 <?php
 
-define('H_DS_ENV', 'dev');
+defined('H_DS_ENV') ||
+	define('H_DS_ENV', 'prod');
 
 // main include
 $vendorsRoot = __DIR__ . '/../../vendors';
