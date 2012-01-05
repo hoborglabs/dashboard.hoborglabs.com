@@ -4,3 +4,6 @@
 [submodule "vendor/dashboard"]
 	path = vendor/dashboard
 	url = git@github.com:hoborglabs/Dashboard.git
+[submodule "vendor/hoborg-widgets"]
+	path = vendor/hoborg-widgets
+	url = git@github.com:hoborglabs/widgets.git
