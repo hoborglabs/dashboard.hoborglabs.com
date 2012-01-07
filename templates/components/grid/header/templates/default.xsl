@@ -16,8 +16,9 @@
 
                 <div class="quicklinks">
                     <ul>
-                        <li class="php"><a href="/downloads/dashboard.phar">dashboard.phar</a></li>
+                        <li class="trello"><a href="https://trello.com/board/dashboard/4ea7062eaed5f360a418c6f5">trello board</a></li>
                         <li class="github"><a href="http://github.com/hoborglabs/Dashboard">view on github</a></li>
+                        <li class="php"><a href="/downloads/dashboard.phar">dashboard.phar</a></li>
                     </ul>
                 </div>
 

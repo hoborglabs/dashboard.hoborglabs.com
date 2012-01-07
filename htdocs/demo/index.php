@@ -8,7 +8,6 @@ define('CONFIG_DIR', realpath(__DIR__ . '/../../conf'));
 // define('DEFAULT_CONFIG', 'demo');
 // define('DATA_DIR', realpath(__DIR__ . '/../../widgets'));
 define('APP_ENV', 'development');
-$active_link = '/demo';
 
 // and display it
 include_once __DIR__ . '/../../vendor/dashboard/autoload.php';

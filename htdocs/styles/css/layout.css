@@ -44,8 +44,8 @@
 
     #header .quicklinks {
         float: left;
-        margin: 0 0 0 420px;
-        width: 300px;
+        margin: 0 0 0 284px;
+        width: 436px;
         height: 24px;
     }
         #header .quicklinks ul {
@@ -66,8 +66,8 @@
 	    #header .quicklinks ul li.github {
 	       background: url(../gfx/icons/github.png) 0 0 no-repeat;
         }
-        #header .quicklinks ul li.github {
-           background: url(../gfx/icons/github.png) 0 0 no-repeat;
+        #header .quicklinks ul li.trello {
+           background: url(../gfx/icons/trello.png) 0 0 no-repeat;
         }
         #header .quicklinks ul li.php {
            background: url(../gfx/icons/php.png) 0 0 no-repeat;
