@@ -16,4 +16,5 @@ $kernel->setPath('templates', array(__DIR__ . '/../../includes'));
 $kernel->setPath('data', array(__DIR__ . '/../../data'));
 $kernel->setPath('widgets', array(__DIR__ . '/../../vendor/hoborg-widgets', __DIR__ . '/../../widgets'));
 $kernel->setDefaultParam('conf', 'demo');
+
 $kernel->handle($_GET);

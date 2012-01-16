@@ -1,47 +1,53 @@
-<?php 
+<?php
 
-// developers list
-$developers = array(
-    'john g', 'dave k', 'steve a', 'matt l',
-    'mark w', 'tom k', 'rob s', 'kevin o',
-    'bill f', 'calvin b', 'chris w', 'connor d',
-    'garry u', 'gavin g', 'frank b', 'glen a',
-);
+class MergeQueueWidget extends \Hoborg\Dashboard\Widget {
 
-$dataFile = $widget['conf']['data'];
+	public function bootstrap() {
+		$widget = $this->data;
+		// developers list
+		$developers = array(
+		    'john g', 'dave k', 'steve a', 'matt l',
+		    'mark w', 'tom k', 'rob s', 'kevin o',
+		    'bill f', 'calvin b', 'chris w', 'connor d',
+		    'garry u', 'gavin g', 'frank b', 'glen a',
+		);
 
-$mergeQueue = json_decode(@file_get_contents(__DIR__ . '/' . $dataFile));
-$mergeQueue = empty($mergeQueue) ? array() : $mergeQueue;
-if (count($mergeQueue) > 16) {
-    $mergeQueue = array_slice($mergeQueue, 16);
-}
+		$dataFile = $widget['conf']['data'];
 
-// get random number of developers
-$mergeCount = rand(0, 3);
+		$mergeQueue = json_decode(@file_get_contents(__DIR__ . '/' . $dataFile));
+		$mergeQueue = empty($mergeQueue) ? array() : $mergeQueue;
+		if (count($mergeQueue) > 16) {
+		    $mergeQueue = array_slice($mergeQueue, 16);
+		}
 
-for ($i = 0; $i < $mergeCount; $i++) {
-    $rm = rand(0, 10);
-    if ($rm > 4) {
-        array_shift($mergeQueue);
-    } else {
-	$id = rand(0, count($developers)-1);
-	$branch = rand(2000, 2999);
-	$mergeQueue[] = $branch . ' - ' . ucwords($developers[$id]);
+		// get random number of developers
+		$mergeCount = rand(0, 3);
 
-	unset($developers[$id]);
-	$developers = array_values($developers);
+		for ($i = 0; $i < $mergeCount; $i++) {
+		    $rm = rand(0, 10);
+		    if ($rm > 4) {
+		        array_shift($mergeQueue);
+		    } else {
+			$id = rand(0, count($developers)-1);
+			$branch = rand(2000, 2999);
+			$mergeQueue[] = $branch . ' - ' . ucwords($developers[$id]);
+
+			unset($developers[$id]);
+			$developers = array_values($developers);
+			}
+		}
+
+		file_put_contents(__DIR__ . '/' . $dataFile, json_encode($mergeQueue));
+
+		if (empty($mergeQueue)) {
+			$widget['body'] = '';
+		} else {
+			// get widget body
+			ob_start();
+			include __DIR__ . '/merge-queue.phtml';
+			$widget['body'] = ob_get_clean();
+		}
+
+		$this->data = $widget;
 	}
 }
-
-file_put_contents(__DIR__ . '/' . $dataFile, json_encode($mergeQueue));
-
-if (empty($mergeQueue)) {
-	$widget['body'] = '';
-} else {
-	// get widget body
-	ob_start();
-	include __DIR__ . '/merge-queue.phtml';
-	$widget['body'] = ob_get_clean();
-}
-
-return $widget;

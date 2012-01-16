@@ -11,11 +11,15 @@
 	/>
 
 	<xsl:template match="component">
+		<!-- 
 		<xsl:value-of disable-output-escaping="yes" select="php:function('Hoborg\Bundle\DisplayServiceBundle\Component\Call::load_module', @name, .)" />
+		 -->
 	</xsl:template>
 
 	<xsl:template name="head">
+	   <!-- 
 		<xsl:value-of select="php:function('Hoborg\Bundle\DisplayServiceBundle\Component\Call::head', .)" />
+	     -->
 	</xsl:template>
 
 </xsl:stylesheet>

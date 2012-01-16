@@ -6,10 +6,10 @@
 >
 <xsl:output method="html" encoding="utf-8" indent="yes" />
     <xsl:include href="../../../../helpers/hoborg.xsl"/>
-	<xsl:template match="/data/component">
+	<xsl:template match="/component">
 		<div class="container {data/type}">
 			<div class="row">
-				<xsl:apply-templates select="component" />
+				<xsl:value-of select="$H_SUB_COMPONENTS" disable-output-escaping="yes" />
 			</div>
 		</div>
 	</xsl:template>

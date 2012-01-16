@@ -6,7 +6,7 @@
 >
 <xsl:output method="html" encoding="utf-8" indent="yes" />
     <xsl:include href="../../../../helpers/hoborg.xsl"/>
-	<xsl:template match="/data/component">
+	<xsl:template match="/component">
 		<div class="{data/size}">
 			<xsl:value-of select="data/text" disable-output-escaping="yes" />
 		</div>

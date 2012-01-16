@@ -6,7 +6,7 @@
 >
 <xsl:output method="html" encoding="utf-8" indent="yes" />
     <xsl:include href="../../../../helpers/hoborg.xsl"/>
-	<xsl:template match="/data/component">
+	<xsl:template match="/component">
 		<div id="footer" class="container">
 			<div class="row">
 				<p>powerd by hoborglabs</p>

@@ -62,23 +62,22 @@ If CGI address does not begin with https?, SimpleDashboard will assume that you 
 }
 ~~~
 
+### php
 
-<h3>php</h3>
-<p>
 PHP field is used to include given PHP file. Path to PHP files MUST be relative to /widgets folder. Your PHP file needs to return $widget array.
-</p>
-<pre>
+
+~~~~
 {
   "body" : "<span class=\"warn\">We had some technical issues - sorry.</span>",
   "static" : "error.html",
   "php" : "my-widget.php"
 }
-</pre>
-<p>
+~~~~
+
 And your PHP script can look like this:
-</p>
-<pre>
+
+~~~~
 &lt;?php
 $widget['body'] = 'my body';
 return $widget;
-</pre>
+~~~~

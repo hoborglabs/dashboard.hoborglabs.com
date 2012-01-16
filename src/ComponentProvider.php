@@ -1,6 +1,6 @@
 <?php
 
-class ComponentProvider extends \Hoborg\Bundle\DisplayServiceBundle\Mapper\Display\File {
+class ComponentProvider extends \Hoborg\Bundle\DisplayServiceBundle\Component\Provider {
 
 	protected $isMobile = false;
 

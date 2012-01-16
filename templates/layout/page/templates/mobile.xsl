@@ -14,7 +14,7 @@
 />
 
     <xsl:include href="../../../helpers/hoborg.xsl"/>
-    <xsl:template match="/page">
+    <xsl:template match="/component">
 
         <xsl:variable name="output">
             <xsl:apply-templates select="component" />

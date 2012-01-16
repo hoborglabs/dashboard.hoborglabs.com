@@ -5,7 +5,7 @@
         exclude-result-prefixes="php"
 >
 <xsl:output method="html" encoding="utf-8" indent="yes"/>
-	<xsl:template match="/data/component">
+	<xsl:template match="/component">
 		<div id="header" class="container">
             <div class="row">
                 <div class="beta">v. BETA</div>
