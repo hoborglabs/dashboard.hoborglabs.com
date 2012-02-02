@@ -12,7 +12,10 @@
 /conf/*.js
 !/conf/*.default.js
 !/conf/demo.js
-
+/conf/*/*.ini
+!/conf/*/*.default.ini
+/conf/*/*.yml
+!/conf/*/*.default.yml
 
 ##
 # Logs
