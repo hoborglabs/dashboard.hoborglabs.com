@@ -6,7 +6,7 @@
 >
 <xsl:output method="html" encoding="utf-8" indent="yes" />
     <xsl:include href="../../../../../helpers/hoborg.xsl"/>
-	<xsl:template match="/data/component">
+	<xsl:template match="/component">
 	   <xsl:if test="boolean(number(data/enabled))">
 		<script type="text/javascript">
             var _gaq = _gaq || [];
