@@ -3,6 +3,38 @@
     "public": "/dashboard",
     "widgets": [
         {
+		"name": "Ankh Morpork VMs",
+		"footer": "Xen Server",
+		"size": "span4 autoHeight",
+		"tick": 60000,
+		"body" : "body tesqt",
+		"php": "hoborg/server-status/widget.php",
+		"conf" : {
+			"data" : "hoborg/ankh-morpork.json",
+			"servers" : {
+				"Production Servers": [
+					"prod 01", "prod 02", "home 01"
+				],
+				"Lab Servers": [
+					"lab 00", "lab01", "lab02"
+				],
+				"Other Servers": [
+					"apptst01", "learn_puppet_centos", "dev01"
+				]
+			}
+		}
+	},
+    {
+		"name": "Page visits (monthly)",
+		"footer": "hoborg/rate-meter/widget.php",
+		"size": "span4",
+		"body" : "test",
+		"php": "hoborg/rate-meter/widget.php",
+		"conf" : {
+			"data" : "hoborg/numbers-01.json"
+		}
+	},
+        {
             "name": "Page Visits (day)",
             "footer": "One day delay.",
             "size": "span4",

@@ -1,0 +1,1 @@
+[{"status": "Halted", "name": "learn_puppet_centos"}, {"status": "Halted", "name": "lab01"}, {"status": "Running", "name": "dev01"}, {"status": "Running", "name": "prod 01"}, {"status": "Running", "name": "prod 02"}, {"status": "Halted", "name": "apptst01"}, {"status": "Running", "name": "home 01"}, {"status": "Halted", "name": "lab02"}, {"status": "Running", "name": "lab 00"}]
