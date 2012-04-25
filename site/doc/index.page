@@ -23,13 +23,13 @@
 		<component name="paragraph">
 			<data>
 				<size>side</size>
-				<markdown file="/var/www/dashboard.local/includes/doc/about.intro.md" />
+				<markdown file="./../includes/doc/about.intro.md" />
 			</data>
 		</component>
 		<component name="paragraph">
 			<data>
 				<size>content</size>
-				<markdown file="/var/www/dashboard.local/includes/doc/about.md" />
+				<markdown file="./../includes/doc/about.md" />
 			</data>
 		</component>
 	</component>
@@ -41,16 +41,14 @@
 		<component name="paragraph">
 			<data>
 				<size>side</size>
-				<markdown
-					file="/var/www/dashboard.local/includes/doc/widget-content.intro.md" />
+				<markdown file="./../includes/doc/widget-content.intro.md" />
 			</data>
 		</component>
 		<component name="paragraph">
 			<data>
 				<size>content</size>
-				<markdown file="/var/www/dashboard.local/includes/doc/widget-content.md" />
+				<markdown file="./../includes/doc/widget-content.md" />
 			</data>
 		</component>
 	</component>
-
 </page>
