@@ -12,8 +12,36 @@
 				<page href="/">Home</page>
 				<page href="/doc" class="active">Documentation</page>
 				<page href="/demo">Demo</page>
+				<page href="/screenshots">Screenshots</page>
 			</navigation>
+			<sub-navigation>
+				<page href="/doc" class="active">Home</page>
+				<page href="/doc/dev">Developers</page>
+			</sub-navigation>
 		</data>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="navigation">
+			<data>
+				<size>side</size>
+				<navigation>
+					<page href="/doc" class="active">Introduction</page>
+					<page href="/doc/dev">Developers</page>
+				</navigation>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<text><![CDATA[
+<h1>Documentation</h1>
+				]]></text>
+			</data>
+		</component>
 	</component>
 
 	<component name="body">
@@ -37,6 +65,24 @@
 	<component name="body">
 		<data>
 			<type>highlight</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown file="./../includes/doc/install.intro.md" />
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown file="./../includes/doc/install.md" />
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
 		</data>
 		<component name="paragraph">
 			<data>

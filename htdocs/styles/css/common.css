@@ -445,8 +445,14 @@ pre code {
 [class*="span"]:first-child {
 	margin-left: 0px;
 }
+.span-one-half {
+  width: 460px;
+}
 .span-one-third {
   width: 300px;
+}
+.span-two-thirds {
+  width: 620px;
 }
 .span-full-width {
   width: 940px;
@@ -524,7 +530,7 @@ pre code {
     padding: 0px 0px;
 }
     #header .logo {
-       background-color: #7EA7E3;
+       Xbackground-color: #7EA7E3;
        text-align: center;
     }
        #header .logo h1 {
@@ -532,10 +538,3 @@ pre code {
            color: #FFF;
            border-bottom: 1px solid #3E67A3;
        }
-    #header .beta {
-        left: -150px;
-        margin-left: 50%;
-        padding: 4px 0px;
-        position: absolute;
-        text-align: center;
-    }

@@ -1,0 +1,99 @@
+<page name="page">
+	<component name="google-analytics">
+		<data>
+			<enabled>0</enabled>
+			<account>UA-26727070-1</account>
+		</data>
+	</component>
+	<component name="header">
+		<data>
+			<navigation>
+				<page href="/">Home</page>
+				<page href="/doc">Documentation</page>
+				<page href="/demo">Demo</page>
+				<page href="/screenshots" class="active">Screenshots</page>
+			</navigation>
+		</data>
+	</component>
+	<component name="body">
+		<data>
+			<type>image</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>span-one-half</size>
+				<text><![CDATA[
+<div class="media-grid"><a><img src="/images/Selection_098.png" style="width:100%" /></a></div>
+				]]></text>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>span-one-half</size>
+				<text><![CDATA[
+<div class="hero-unit hero-small">
+	<h2>For Service Desk</h2>
+	<p>
+	Web traffic, logins, 3rd-party providers helth-chekcs,
+	servers performance and many, many more.
+	</p>
+</div>
+				]]></text>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type>image</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>span-one-half</size>
+				<text><![CDATA[
+<div class="hero-unit hero-small">
+	<h2>For Developers</h2>
+	<p>
+	Jenkins builds status, graphite stats, and anything else you need.
+	</p>
+</div>
+				]]></text>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>span-one-half</size>
+				<text><![CDATA[
+<div class="media-grid"><a><img src="/images/screenshots/02.png" style="width:100%" /></a></div>
+				]]></text>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type>image</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>span-one-half</size>
+				<text><![CDATA[
+<div class="media-grid"><a><img src="/images/screenshots/03.png" style="width:100%" /></a></div>
+				]]></text>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>span-one-half</size>
+				<text><![CDATA[
+<div class="hero-unit hero-small">
+	<h2>For Your Team</h2>
+	<p>
+	Graphs, Statistics, Top Code Commiters, ...
+	</p>
+</div>
+				]]></text>
+			</data>
+		</component>
+	</component>
+</page>

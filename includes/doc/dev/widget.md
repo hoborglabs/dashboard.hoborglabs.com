@@ -1,16 +1,36 @@
 ### Widget - What is it?
 
-Widget is simply JSON object which represents it's data. It is then 
-rendered using {mustache} template. Widget can provide it's own
-template or a default one will be used.
+Widget is simply JSON object which represents it's state. Each widget
+is rendered using template and data field. By default data is an empty
+object and template fallsback to '{{body}}'.
+
+
+This is example JSON representing widget
+~~~
+{
+  template: "Hello {{name}}!",
+  tick: 30,
+  dataUrl: ""
+  data: {
+    name: "World"
+  }
+  config: {}
+}
+~~~
+
+Widgets can by static or dynamic. Static widgets are usually menus,
+labels or any other decorational elements. 
+
 
 By default Dashboard comes with WidgetProvider which allows you 
 dynamically extend widget's JSON using PHP files or any external CGI
 scripts or simply static files.
 
-#### Reserverd Fields
+
+#### Reserved Fields
 
 There are few reserved json fields - we try to keep it at minimum.
+
 
 ##### template
 

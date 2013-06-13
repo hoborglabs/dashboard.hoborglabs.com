@@ -5,11 +5,12 @@ defined('H_DS_ENV') ||
 
 // main include
 $vendorsRoot = __DIR__ . '/../../vendors';
-require_once $vendorsRoot. '/HoborgDisplayService/application/DisplayService/autoload.php';
+require_once $vendorsRoot. '/autoload.php';
 require_once __DIR__ . '/../src/ComponentProvider.php';
+// require_once __DIR__ . '/../application/Kernel.php';
 
 use Symfony\Component\HttpFoundation\Request;
-use Hoborg\DisplayService\Kernel;
+use Hoborg\Application\Kernel;
 
 $kernel = new Kernel(H_DS_ENV, true);
 

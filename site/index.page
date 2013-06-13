@@ -11,6 +11,7 @@
                 <page href="/" class="active">Home</page>
                 <page href="/doc">Documentation</page>
                 <page href="/demo">Demo</page>
+                <page href="/screenshots">Screenshots</page>
             </navigation>
         </data>
     </component>
@@ -18,7 +19,30 @@
         <data>
             <type>image</type>
         </data>
-        <component name="media-grid">
+        <component name="paragraph">
+            <data>
+                <size></size>
+                <text><![CDATA[
+                <div class="hero-unit">
+                    <span class="media-grid span-one-half" style="margin: 0 20px -20px -20px;"><a><img src="/images/dashboard_02.png" style="max-width: 100%;" /></a></span>
+                    <p>
+                    Web traffic, logins, 3rd-party providers helth-chekcs,
+                    servers performance and many, many more is recorder and tracked
+                    at <b>Sky Betting & Gaming</b>. Selected metrics pulled from Graphite,
+                    Opsview and Splunk are put together in various dashboards.
+                    </p>
+
+                    <blockquote>
+                      <p>Lorme ipusm dolor sit ament.</p>
+                      <small>Abraham Lincoln</small>
+                    </blockquote>
+                    
+                </div>
+                ]]></text>
+            </data>
+        </component>
+
+        <Xcomponent name="media-grid">
             <data>
                 <media type="img">
                     <img src="/images/dashboard_01.png"
@@ -29,7 +53,8 @@
                     />
                 </media>
             </data>
-        </component>
+        </Xcomponent>
+
     </component>
     <component name="body">
         <data>

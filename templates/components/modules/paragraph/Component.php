@@ -11,14 +11,28 @@ class Paragraph extends Component {
 	public function prepareData() {
 
 		parent::prepareData();
-		foreach ($this->data->childNodes as $component) {
+		foreach ($this->data->documentElement->childNodes as $component) {
 			if ('markdown' === $component->nodeName) {
-				$mdFile = $component->getAttribute('file');
-				$textNode = $this->data->ownerDocument->importNode(
-						new DOMElement('text', Markdown(file_get_contents($mdFile))), true);
-				$this->data->appendChild($textNode);
+				if ($component->hasAttribute('file')) {
+					$mdFile = $this->provider->getRootDir()
+							. '/' . $this->provider->getSitePrefix()
+							. '/' . $component->getAttribute('file');
+					$md = file_get_contents($mdFile);
+				} else {
+					$md = $component->nodeValue;
+				}
+				$html = Markdown($md);
+
+				$textNode = $this->data->importNode(
+						new DOMElement('text', $html), true);
+				$component->parentNode->replaceChild($textNode, $component);
 			}
 		}
 		unset($component);
+	}
+
+	protected function replaceImages($html) {
+		// '<h:img[^/]/>'
+		return $html;
 	}
 }

@@ -12,7 +12,34 @@
 				<page href="/doc" class="active">Documentation</page>
 				<page href="/demo">Demo</page>
 			</navigation>
+			<sub-navigation>
+				<page href="/doc">Home</page>
+				<page href="/doc/dev" class="active">Developers</page>
+			</sub-navigation>
 		</data>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="navigation">
+			<data>
+				<size>side</size>
+				<navigation>
+					<page href="/doc">Introduction</page>
+					<page href="/doc/dev" class="active">Developers</page>
+				</navigation>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<text><![CDATA[
+<h1>Developers Section</h1>
+				]]></text>
+			</data>
+		</component>
 	</component>
 
 	<component name="body">
@@ -22,13 +49,13 @@
 		<component name="paragraph">
 			<data>
 				<size>side</size>
-				<markdown file="/var/www/dashboard.local/includes/doc/dev/intro.intro.md" />
+				<markdown file="./../includes/doc/dev/intro.intro.md" />
 			</data>
 		</component>
 		<component name="paragraph">
 			<data>
 				<size>content</size>
-				<markdown file="/var/www/dashboard.local/includes/doc/dev/intro.md" />
+				<markdown file="./../includes/doc/dev/intro.md" />
 			</data>
 		</component>
 	</component>
@@ -40,13 +67,13 @@
 		<component name="paragraph">
 			<data>
 				<size>side</size>
-				<markdown file="/var/www/dashboard.local/includes/doc/dev/widget.intro.md" />
+				<markdown file="./../includes/doc/dev/widget.intro.md" />
 			</data>
 		</component>
 		<component name="paragraph">
 			<data>
 				<size>content</size>
-				<markdown file="/var/www/dashboard.local/includes/doc/dev/widget.md" />
+				<markdown file="./../includes/doc/dev/widget.md" />
 			</data>
 		</component>
 	</component>
