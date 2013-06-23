@@ -1,0 +1,16 @@
+<div class="panel" style="text-align: center">
+	<span class="text-L {{header.class}}">{{header.text}}</span>
+</div>
+<div class="content">
+	<table class="text-L">
+		<tbody>
+			{{#data.data}}
+				<tr>
+					<?php foreach ($row as $col) : ?>
+						<td><?php echo $col; ?></td>
+					<?php endforeach; ?>
+				</tr>
+			{{/data.data}}
+		</tbody>
+	</table>
+</div>

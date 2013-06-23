@@ -22,5 +22,10 @@
 #
 /logs
 
+##
+# Build, Dev, Test
 /cache
 /vendor
+/out
+/build.properties
+/build.*.properties

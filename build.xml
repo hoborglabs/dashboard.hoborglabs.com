@@ -1,0 +1,101 @@
+<project name="dashboard.hoborglabs.com" default="help" basedir=".">
+
+	<!-- optional environmental settings -->
+	<property file="build.properties" />
+
+	<!-- set default values if not already set in build.properties -->
+	<property name="dir.base" location="." />
+	<property name="dir.src" location="${dir.base}" />
+	<property name="dir.out" location="${dir.base}/out" />
+
+	<!-- Commands aliases -->
+	<property name="cmd.ds-console" value="console.php" />
+
+	<target name="build"
+		description="Builds Website."
+		depends="clean, build.assets, build.html"
+	>
+		<exec executable="git" outputproperty="build.version">
+			<arg line="log" />
+			<arg line="-1" />
+			<arg line="--format=%h" />
+		</exec>
+
+		<echo level="info">Packing website contnet.</echo>
+		<delete file="${dir.out}/dashboard.hoborglabs.com.${build.version}.tgz" failonerror="no" />
+		<tar destfile="${dir.out}/dashboard.hoborglabs.com.${build.version}.tgz" basedir="${dir.out}" compression="gzip" />
+	</target>
+
+	<target name="clean">
+		<echo level="info">Cleaning `${dir.out}` folder</echo>
+		<mkdir dir="${dir.out}" />
+		<delete>
+			<fileset dir="${dir.out}">
+				<include name="**" />
+				<include name="**/*" />
+			</fileset>
+		</delete>
+	</target>
+
+	<target name="build.assets"
+		description="Copy css, js and other assets to target folder"
+	>
+		<echo level="info">Copying CSS.</echo>
+		<mkdir dir="${dir.out}/styles/" />
+		<copy todir="${dir.out}/styles">
+			<fileset dir="${dir.src}/htdocs/styles">
+				<include name="css/*.css" />
+				<include name="gfx/**/*.png" />
+				<include name="gfx/**/*.gif" />
+				<include name="gfx/**/*.jpg" />
+			</fileset>
+		</copy>
+		
+		<echo level="info">Copying images.</echo>
+		<mkdir dir="${dir.out}/images/" />
+		<copy todir="${dir.out}/images">
+			<fileset dir="${dir.src}/htdocs/images">
+				<include name="screenshots/*.*" />
+				<include name="*.*" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build.html">
+		<mkdir dir="${dir.out}/doc" />
+
+		<!-- If ds.env is not set, use "prod" -->
+		<property name="ds.env" value="prod" />
+
+		<echo level="info">Generating HTML to `${dir.out}` folder</echo>
+		<exec executable="php" failonerror="true">
+			<env key="DS_HOSTDIR" value="${dir.src}" />
+			<env key="DS_ENV" value="${ds.env}" />
+			<arg line="${cmd.ds-console}" />
+			<arg line="ds:generate" />
+			<arg line="--source='/'" />
+			<arg line="--output='${dir.out}'" />
+		</exec>
+	</target>
+
+	<target name="deploy" if="deploy.do_deploy">
+		<scp file="${dir.out}/dashboard.hoborglabs.com.${build.version}.tgz"
+			todir="${deploy.user}@${deploy.host}:${deploy.target}"
+			keyfile="${deploy.keyfile}"
+		/>
+		<sshexec host="${deploy.host}"
+			username="${deploy.user}"
+			keyfile="${deploy.keyfile}"
+			command="tar xzf ${deploy.target}/dashboard.hoborglabs.com.${build.version}.tgz -C ${deploy.target}/public"
+		/>
+	</target>
+
+	<!-- Help Message -->
+	<target name="help"
+		description="Prints this help"
+	>
+		<exec executable="ant">
+			<arg value="-p" />
+		</exec>
+	</target>
+</project>
