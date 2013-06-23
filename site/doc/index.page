@@ -14,10 +14,6 @@
 				<page href="/demo">Demo</page>
 				<page href="/screenshots">Screenshots</page>
 			</navigation>
-			<sub-navigation>
-				<page href="/doc" class="active">Home</page>
-				<page href="/doc/dev">Developers</page>
-			</sub-navigation>
 		</data>
 	</component>
 

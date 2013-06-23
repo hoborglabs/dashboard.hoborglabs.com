@@ -11,11 +11,8 @@
 				<page href="/">Home</page>
 				<page href="/doc" class="active">Documentation</page>
 				<page href="/demo">Demo</page>
+				<page href="/screenshots">Screenshots</page>
 			</navigation>
-			<sub-navigation>
-				<page href="/doc">Home</page>
-				<page href="/doc/dev" class="active">Developers</page>
-			</sub-navigation>
 		</data>
 	</component>
 
