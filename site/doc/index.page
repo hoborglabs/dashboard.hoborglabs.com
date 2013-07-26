@@ -27,6 +27,7 @@
 				<navigation>
 					<page href="/doc" class="active">Introduction</page>
 					<page href="/doc/dev">Developers</page>
+					<page href="/doc/dev/write-widgets">Writing Widgets</page>
 				</navigation>
 			</data>
 		</component>

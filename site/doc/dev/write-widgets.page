@@ -1,0 +1,309 @@
+<page name="page">
+	<component name="google-analytics">
+		<data>
+			<enabled>0</enabled>
+			<account>UA-26727070-1</account>
+		</data>
+	</component>
+	<component name="header">
+		<data>
+			<navigation>
+				<page href="/">Home</page>
+				<page href="/doc" class="active">Documentation</page>
+				<page href="/demo">Demo</page>
+				<page href="/screenshots">Screenshots</page>
+			</navigation>
+		</data>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="navigation">
+			<data>
+				<size>side</size>
+				<navigation>
+					<page href="/doc">Introduction</page>
+					<page href="/doc/dev">Developers</page>
+					<page href="/doc/dev/write-widgets" class="active">Writing Widgets</page>
+				</navigation>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<text><![CDATA[
+<h1>Write a Widget</h1>
+<p>
+My assumption is that you've installed dashboard using: <br />
+<code>curl -s http://get.hoborglabs.com/dashboard/install | php</code>.<br />
+and you can access it locally on <code>http://board.local/dashboard.php?conf=demo</code>
+
+</p>
+				]]></text>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+## First, We Need Some json.
+
+We need to start with simple configuration for our dashboard and our new widget
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown>
+
+This is the simplest example of a dashboard with just one widget.
+~~~~
+{
+  "name": "Example Dashboard",
+  "template": "hoborg",
+  "tag": ["examples"],
+  "widgets": [
+    {
+      "name": "This is my first widget",
+      "size": "autoHeight span16",
+      "php": "test/widget.php",
+      "config": {
+        "opt1": "val1"
+      }
+    }
+  ]
+}
+~~~~
+
+Save it in boards/demo/config/example.json
+
+Now you should be able to go to <code>http://board.local/dashboard.php?conf=example</code>. You will get a dashboard
+with empty widget, but ... with correct header. That's because dashboard used default widget template to display your
+widget's data.
+				</markdown>
+			</data>
+		</component>
+	</component>
+	<component name="body">
+		<data>
+			<type>highlight</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+### Exercise 01
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown>
+Create `boards/demo/data/static_01.html` and update widget JSON. Replace `php` with new `static` property.
+~~~~
+{
+  "name": "This is my first widget",
+  "size": "autoHeight span16",
+  "static": "test.html",
+  "footer": "This is footer"
+}
+~~~~
+
+Now contnet of static_01.html will end up in the widget body.
+
+Oh, and default template print's `footer` as well.
+				</markdown>
+			</data>
+		</component>
+	</component>
+
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+## Let's write some PHP.
+
+
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown>
+Now let's write some simple PHP class. Dashboard engine looks for PHP files inside `widgets` folder(s). Our widget config
+want to use `test/widget.php`, so let's create `board/demo/widgets/test/widget.php`.
+
+~~~~
+&amp;lt;php
+
+// my widget
+class Widget extends \Hoborg\Dashboard\Widget {
+  public function bootstrap() {
+    // build widget's data
+    $this->data['data'] = $this->getWidgetData();
+
+    // get widget's template
+    $this->data['template'] = $this->getTemplate();
+  }
+
+  protected function getWidgetData() {
+    return array('title' => 'This is my title');
+  }
+
+  protected function getTemplate() {
+    return '&amp;lt;div class="header">&#123;{name}}&amp;lt;/div>&amp;lt;div class="body">Title: &#123;{ data.title }}&amp;lt;/div>';
+  }
+}
+~~~~
+
+But what about that `config` property? Let's use it
+
+~~~~
+protected function getWidgetData() {
+  $config = $this->getData('config', array());
+  $title = empty($config['title']) ? 'Default Title' : $config['title'];
+
+  return array('title' => $title);
+}
+
+protected function getTemplate() {
+  $config = $this->getData('config', array());
+  $tpl = empty($config['tpl']) ? 'simple' : $config['tpl'];
+
+  return file_get_contents(__DIR__ . "/{$tpl}.mustache");
+}
+~~~~
+
+
+And here's `board/demo/widgets/test/simple.mustache`
+~~~~
+&amp;lt;div class="header">&#123;{name}}&amp;lt;/div>
+&amp;lt;div class="body">
+  &amp;lt;div class="panel">&#123;{data.title}}&amp;lt;/div>
+&amp;lt;/div>
+~~~~
+				</markdown>
+			</data>
+		</component>
+	</component>
+	<component name="body">
+		<data>
+			<type>highlight</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+### Exercise 02
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown>
+Create new template `boards/demo/widgets/test/advanced.mustache` and switch to new view from widget JSON.
+				</markdown>
+			</data>
+		</component>
+		
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+### Exercise 03
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown>
+Create `boards/demo/data/testdata.json` and put some valid JSON in it. All widget objects have access to Kernel. You
+can use it for instance for finding files.
+
+~~~~
+  protected function getExtraData() {
+    $config = $this->getData('config', array());
+
+    if (empty($config['datafile'])) {
+      return array();
+    }
+
+    // let's look for our file
+    $datafile = $this->kernel->findFileOnPath($config['datafile'], $this->kernel->getDataPath());
+    if (empty($datafile)) {
+      return array();
+    }
+
+    $json = file_get_contents($datafile);
+    return json_decode($json, true);
+  }
+~~~~
+
+Now simply update widget config and template and that is it.
+
+~~~~
+{
+  "name": "This is my first widget",
+  "size": "autoHeight span16",
+  "php": "test/widget.php",
+  "config": {
+    "datafile": "testdata.json",
+    "tpl": "advanced"
+  }
+}
+~~~~
+				</markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+## Mustache Template.
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown>
+Your mustache template has access to entire widget JSON object. And you have access to entire widget object from PHP!
+
+~~~~
+
+&amp;lt;div class="header">&#123;{name}}&amp;lt;/div>
+&amp;lt;div class="body">
+  my widget wicked body
+&amp;lt;/div>
+~~~~
+
+				</markdown>
+			</data>
+		</component>
+	</component>
+
+</page>

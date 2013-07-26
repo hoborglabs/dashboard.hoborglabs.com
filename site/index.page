@@ -1,131 +1,179 @@
 <page name="page">
-    <component name="google-analytics">
-        <data>
-            <enabled>0</enabled>
-            <account>UA-26727070-1</account>
-        </data>
-    </component>
-    <component name="header">
-        <data>
-            <navigation>
-                <page href="/" class="active">Home</page>
-                <page href="/doc">Documentation</page>
-                <page href="/demo">Demo</page>
-                <page href="/screenshots">Screenshots</page>
-            </navigation>
-        </data>
-    </component>
-    <component name="body">
-        <data>
-            <type>image</type>
-        </data>
-        <component name="paragraph">
-            <data>
-                <size></size>
-                <text><![CDATA[
-                <div class="hero-unit">
-                    <span class="media-grid span-one-half" style="margin: 0 20px -20px -20px;"><a><img src="/images/dashboard_02.png" style="max-width: 100%;" /></a></span>
-                    <p>
-                    Web traffic, logins, 3rd-party providers helth-chekcs,
-                    servers performance and many, many more is recorder and tracked
-                    at <b>Sky Betting & Gaming</b>. Selected metrics pulled from Graphite,
-                    Opsview and Splunk are put together in various dashboards.
-                    </p>
+	<component name="google-analytics">
+		<data>
+			<enabled>0</enabled>
+			<account>UA-26727070-1</account>
+		</data>
+	</component>
+	<component name="header">
+		<data>
+			<navigation>
+				<page href="/" class="active">Home</page>
+				<page href="/doc">Documentation</page>
+				<page href="/demo">Demo</page>
+				<page href="/screenshots">Screenshots</page>
+			</navigation>
+		</data>
+	</component>
+	<component name="body">
+		<data>
+			<type>image</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size></size>
+				<!--
+				<text><![CDATA[
+				<div class="hero-unit">
+					<span class="media-grid span-one-half" style="margin: 0 20px -20px -20px;"><a><img src="/images/dashboard_02.png" style="max-width: 100%;" /></a></span>
+					<p>
+					Web traffic, logins, 3rd-party providers helth-chekcs,
+					servers performance and many, many more is recorder and tracked
+					at <b>Sky Betting & Gaming</b>. Selected metrics pulled from Graphite,
+					Opsview and Splunk are put together in various dashboards.
+					</p>
 
-                    <blockquote>
-                      <p>Lorme ipusm dolor sit ament.</p>
-                      <small>Abraham Lincoln</small>
-                    </blockquote>
-                    
-                </div>
-                ]]></text>
-            </data>
-        </component>
+					<blockquote>
+					  <p>Lorme ipusm dolor sit ament.</p>
+					  <small>Abraham Lincoln</small>
+					</blockquote>
+					
+				</div>
+				]]></text>
+				-->
+				<text><![CDATA[
+				<div class="hero-unit">
+					<span class="media-grid span-one-half" style="margin: 0 20px -20px -20px;"><a><img src="/images/dashboard_02.png" style="max-width: 100%;" /></a></span>
+					<h2>All Data<br /> in One Place</h2>
+					<p>
+					Web traffic, servers performance, 3rd-party providers helth-chekcs,
+					and many, many more. Display data from Graphite, Splunk, Opsview in one place.
+					</p>
+				</div>
+				]]></text>
+			</data>
+		</component>
 
-        <Xcomponent name="media-grid">
-            <data>
-                <media type="img">
-                    <img src="/images/dashboard_01.png"
-                        thumb="/images/dashboard_01.png"
-                        alt="Dashboard in Action"
-                        width="930"
-                        height="366"
-                    />
-                </media>
-            </data>
-        </Xcomponent>
+		<Xcomponent name="media-grid">
+			<data>
+				<media type="img">
+					<img src="/images/dashboard_01.png"
+						thumb="/images/dashboard_01.png"
+						alt="Dashboard in Action"
+						width="930"
+						height="366"
+					/>
+				</media>
+			</data>
+		</Xcomponent>
 
-    </component>
-    <component name="body">
-        <data>
-            <type>highlight</type>
-        </data>
-        <component name="paragraph">
-            <data>
-                <size>span-one-third</size>
-                <text><![CDATA[
-                    <h3>We Believe in Simplicity!</h3>
-                    <p>We will continue to make it as easy as possible to introduce the Dashboard in your organization.
-                    We will also make sure that there will be as little technical constrains as possible - we want all
-                    devs in your area to contribute - it's super easy!
-                    </p>
-                ]]></text>
-            </data>
-        </component>
-        <component name="paragraph">
-            <data>
-                <size>span-one-third</size>
-                <text><![CDATA[
-                    <h3>Distributed & JSON-ified widgets.</h3>
-                    <p>Each and every <em>developer</em> in your organization can contribute to the dashboard. It's 
-                    easy as returning JSON object over http!</p>
-                    <p>Because <em>widget</em> is a simply JSON object, you can write your widgets in any language 
-                    you want. The only limit is your imagination!</p>
-                ]]></text>
-            </data>
-        </component>
-        <component name="paragraph">
-            <data>
-                <size>span-one-third</size>
-                <text><![CDATA[
-                    <h3>Out-Of-The-Box Functionalities.</h3>
-                    <p>Hoborg Labs provide default set of widgets and tools for some commonly use software 
-                    packages like git, redmine, jenkins, graphite, opsview or github.</p>
-                    <p>We use {{ mustache }} JS templates and jQuery. We recommend 
-                    <a href="http://www.rgraph.net/">RGraph</a> for simple js graphs and 
-                    <a href="http://graphite.wikidot.com">Graphite</a> for more dynamic charts.
-                    </p>
-                ]]></text>
-            </data>
-        </component>
-    </component>
-    
-    <component name="body">
-        <data>
-            <type></type>
-        </data>
-        <component name="paragraph">
-            <data>
-                <size>span-full-width</size>
-                <text><![CDATA[
-                    <h3>Simple Installation</h3>
-                    <p>
-                    Go to your vhost root folder, and run
-                    <code>curl -s http://get.hoborglabs.com/dashboard/install | php</code>.
-                    Or check more options in 
-                    <a href="/doc">documentation</a>.
-                    </p>
-                    <h3>DIY!</h3>
-                    <p>If you want to integrate dashboard with your existing page, follow tese simple steps.</p>
-                    <ol>
-                        <li>Download <a href="http://get.hoborglabs.com/dashboard/dashboard.phar">dashboard.phar</a> into vendors/ folder.</li>
-                        <li>Download <a href="http://get.hoborglabs.com/dashboard/dashboard-assets.tgz">dashboard-assets.tgz</a> into vendors/ folder and unzip in subfolder of  your host public folder. For instance htdocs/dashboard</li>
-                        <li>Create dashboard.php or download it <a href="https://gist.github.com/1512137">from here</a>.</li>
-                    </ol>
-                    <script src="https://gist.github.com/1512137.js?file=dashboard.php"></script>
-                ]]></text>
-            </data>
-        </component>
-    </component>
-    
+	</component>
+	<component name="body">
+		<data>
+			<type>highlight</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>span-one-third</size>
+				<text><![CDATA[
+					<h3>We Believe in Simplicity!</h3>
+					<p>We will continue to make it as easy as possible to introduce the Dashboard in your organization.
+					We will also make sure that there will be as little technical constrains as possible - we want all
+					devs in your area to contribute - it's super easy!
+					</p>
+				]]></text>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>span-one-third</size>
+				<text><![CDATA[
+					<h3>Distributed & JSON-ified widgets.</h3>
+					<p>Each and every <em>developer</em> in your organization can contribute to the dashboard. It's 
+					easy as returning JSON object over http!</p>
+					<p>Because <em>widget</em> is a simply JSON object, you can write your widgets in any language 
+					you want. The only limit is your imagination!</p>
+				]]></text>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>span-one-third</size>
+				<text><![CDATA[
+					<h3>Out-Of-The-Box Functionalities.</h3>
+					<p>Hoborg Labs provide default set of widgets and tools for some commonly use software 
+					packages like git, redmine, jenkins, graphite, opsview or github.</p>
+					<p>We use &#123;{ mustache }} JS templates and jQuery. We recommend 
+					<a href="http://d3js.org/">d3js</a> for custom graphs.
+					</p>
+				]]></text>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>span-full-width</size>
+				<!-- <text><![CDATA[
+
+<h3>Simple Installation</h3>
+<p>
+	Go to your vhost root folder, and run
+	<code>curl -s http://get.hoborglabs.com/dashboard/install | php</code>.
+	Or check more options in 
+	<a href="/doc">documentation</a>.
+</p>
+
+<h3>DIY!</h3>
+<p>If you want to integrate dashboard with your existing page, follow tese simple steps.</p>
+<ol>
+	<li>Download <a href="http://get.hoborglabs.com/dashboard/dashboard.phar">dashboard.tgz</a>
+		into your vhost root (parent of your public folder).<br />
+		<code>curl -O http://get.hoborglabs.com/dashboard/dashboard.tgz</code>
+	</li>
+	<li>Unpack dashboard.tgz<br />
+		<code>tar xzf dashboard.tgz</code>
+	</li>
+	<li>Install dashbaord<br />
+		<code>php vendor/hoborglabs/dashboard/bin/install.php -t simple</code><br />
+		Installation scrip assumes that `htdocs` folder is present and it's your public root.
+	</li>
+</ol>
+
+<h3>PHP Composer</h3>
+<p>If you are already using Composer, simply add <code>hoborglabs/dashboard</code>
+	and <code>hoborglabs/widgets</code> to your requirements. Now the only thing you
+	need is dashboard.php
+</p>
+<script src="https://gist.github.com/1512137.js?file=dashboard.php"></script>
+
+				]]></text> -->
+				<text><![CDATA[
+
+<h3>Simple Installation</h3>
+<p>
+	Go to your vhost root folder, and run
+	<code>curl -s http://get.hoborglabs.com/dashboard/install | php</code>.
+	You should now have `htdocs`, `boards` and `vendors` folders. Set your DocumenrRoot to htdocs
+	and you're done.<br />
+	Open your browser and go to `http://your-vhost.local/dashboard.php?conf=demo`. That will look and
+	load first `demo.json` or `demo.js` file found in config folder(s).
+</p>
+<p>
+	For more information visit <a href="doc">documentation page</a>
+</p>
+
+<h3>More installation options coming soon!</h3>
+<p>With new version (2.0) of Dashboard there will be few more easy options to install,
+including composer.</p>
+
+				]]></text>
+			</data>
+		</component>
+	</component>
+
 </page>

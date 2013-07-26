@@ -6,15 +6,23 @@
 	<!-- set default values if not already set in build.properties -->
 	<property name="dir.base" location="." />
 	<property name="dir.src" location="${dir.base}" />
-	<property name="dir.out" location="${dir.base}/out" />
+	<property name="dir.build" location="${dir.base}/build" />
+	<property name="dir.out" location="${dir.build}/out" />
 
 	<!-- Commands aliases -->
 	<property name="cmd.ds-console" value="console.php" />
 
 	<target name="build"
 		description="Builds Website."
-		depends="clean, build.assets, build.html"
+		depends="clean"
 	>
+		<parallel>
+			<antcall target="build.assets" />
+			<antcall target="build.html" />
+		</parallel>
+		
+		<copy file="${dir.base}/.htaccess" tofile="${dir.out}/.htaccess" />
+		
 		<exec executable="git" outputproperty="build.version">
 			<arg line="log" />
 			<arg line="-1" />
@@ -22,8 +30,11 @@
 		</exec>
 
 		<echo level="info">Packing website contnet.</echo>
-		<delete file="${dir.out}/dashboard.hoborglabs.com.${build.version}.tgz" failonerror="no" />
-		<tar destfile="${dir.out}/dashboard.hoborglabs.com.${build.version}.tgz" basedir="${dir.out}" compression="gzip" />
+		<delete file="${dir.build}/dashboard.hoborglabs.com.${build.version}.tgz" failonerror="no" />
+		<tar destfile="${dir.build}/dashboard.hoborglabs.com.${build.version}.tgz"
+			basedir="${dir.out}"
+			compression="gzip"
+		/>
 	</target>
 
 	<target name="clean">
@@ -63,6 +74,7 @@
 
 	<target name="build.html">
 		<mkdir dir="${dir.out}/doc" />
+		<mkdir dir="${dir.out}/doc/dev" />
 
 		<!-- If ds.env is not set, use "prod" -->
 		<property name="ds.env" value="prod" />
@@ -79,14 +91,19 @@
 	</target>
 
 	<target name="deploy" if="deploy.do_deploy">
-		<scp file="${dir.out}/dashboard.hoborglabs.com.${build.version}.tgz"
+		<exec executable="git" outputproperty="build.version">
+			<arg line="log" />
+			<arg line="-1" />
+			<arg line="--format=%h" />
+		</exec>
+		<scp file="${dir.build}/dashboard.hoborglabs.com.${build.version}.tgz"
 			todir="${deploy.user}@${deploy.host}:${deploy.target}"
 			keyfile="${deploy.keyfile}"
 		/>
 		<sshexec host="${deploy.host}"
 			username="${deploy.user}"
 			keyfile="${deploy.keyfile}"
-			command="tar xzf ${deploy.target}/dashboard.hoborglabs.com.${build.version}.tgz -C ${deploy.target}/public"
+			command="tar xzf ${deploy.target}/dashboard.hoborglabs.com.${build.version}.tgz -C ${deploy.target}/public_html"
 		/>
 	</target>
 
