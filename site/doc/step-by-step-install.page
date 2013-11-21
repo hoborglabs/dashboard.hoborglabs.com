@@ -1,0 +1,203 @@
+<page name="page">
+	<component name="google-analytics">
+		<data>
+			<enabled>0</enabled>
+			<account>UA-26727070-1</account>
+		</data>
+	</component>
+
+	<component name="header">
+		<data>
+			<navigation>
+				<page href="/">Home</page>
+				<page href="/doc" class="active">Documentation</page>
+				<page href="/demo">Demo</page>
+				<page href="/screenshots">Screenshots</page>
+			</navigation>
+		</data>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="navigation">
+			<data>
+				<size>side</size>
+				<navigation>
+					<page href="/doc" class="active">Introduction</page>
+					<page href="/doc/dev">For Developers</page>
+					<page href="/doc/dev/write-widgets">For PHP Developers</page>
+					<page href="/doc/dev/">For JS Developers</page>
+				</navigation>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown><![CDATA[
+## Step-by-step Installation
+
+Instalation instructions on how to set-up your vhost with the dashboard
+
+This instructions are only suggestions. There are many different ways
+to create vhost etc.  
+I assume that you have apache2 running and PHP (>=5.3.0) installed and
+configured with apache.
+
+~~~
+$ php -v
+PHP 5.3.15 (cli)...
+
+$ sudo service apache2 status
+running
+
+$ apachectl -M | grep php
+php5_module (shared)
+~~~
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+### Apache Vhost
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown><![CDATA[
+### Apache and vhost
+
+First we will setup vhost for your local dashboard installation. Start
+with creating new folder `/var/www/dashboard.dev` ad new vhost config
+in `/etc/apache2/sites-available/dashbosard.dev.conf`.
+
+~~~
+# create vhost folder
+sudo mkdir /var/www/dashboard.dev
+sudo chown `whoami`:_www /var/www/dashboard.dev/
+
+# ... now logs folder
+mkdir /var/www/dashboard.dev/logs
+chmod 775 /var/www/dashboard.dev/logs
+
+# htdocs with some test page
+mkdir /var/www/dashboard.dev/htdocs
+chmod 775 /var/www/dashboard.dev/htdocs
+echo "Hello Dashboard Vhost" > /var/www/dashboard.dev/htdocs/index.html
+
+# and let's add dashboard domain
+sudo bash -c 'echo "127.0.0.1       dashboard.dev" >> /etc/hosts'
+~~~
+
+~~~
+&lt;VirtualHost *:80>
+    DocumentRoot /var/www/dashboard.dev/htdocs
+    ServerName dashboard.dev
+
+    Alias /dashboard /var/www/dashboard.dev/vendor/hoborglabs/dashboard/htdocs
+
+    # Apache Logs
+    LogLevel warn
+    ErrorLog /var/www/dashboard.dev/logs/error.log
+    CustomLog /var/www/dashboard.dev/logs/access.log combined
+
+    &lt;Directory "/">
+        Options            Indexes FollowSymLinks
+        AllowOverride      None
+        Order              allow,deny
+        Allow              from all
+    &lt;/Directory>
+
+    &lt;Location />
+        RewriteEngine on
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+        RewriteRule ^(.*)$ /index.php
+    &lt;/Location>
+
+&lt;/VirtualHost>
+~~~
+
+And finally restart Apache.
+
+~~~
+sudo service apache2 restart
+curl http://dashboard.dev
+~~~
+
+you should now get "Hello Dashboard Vhost".
+
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type>highlight</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown>
+### Install Dashboard
+				</markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown><![CDATA[
+### PHP Composer - dependency manager
+
+~~~
+cd /var/www/dashboard.dev/
+curl -sS https://getcomposer.org/installer | php
+~~~
+
+now create composer.json
+~~~
+echo '{
+    "require": {
+        "php": ">=5.3.0",
+        "hoborglabs/dashboard": "1.1.*",
+        "hoborglabs/widgets": "*"
+    }
+}' > /var/www/dashboard.dev/composer.json
+~~~
+
+and install!!
+~~~
+./composer.phar update
+~~~
+
+Now we have all the PHP source files. We just have to use it :)
+
+~~~
+echo "&lt;?php
+require_once __DIR__ . '/../vendor/autoload.php';
+\$kernel = new \Hoborg\Dashboard\Kernel(__DIR__ . '/..', 'dev');
+\$kernel->addExtensionPath(__DIR__ . '/../boards/demo');
+\$kernel->handle(array_merge(\$_GET, \$_POST));" > /var/www/dashboard.dev/htdocs/index.php
+# and remove old index.html
+rm /var/www/dashboard.dev/htdocs/index.html
+# ... and create demo board folder
+mkdir -p /var/www/dashboard.dev/boards/demo
+cd /var/www/dashboard.dev/boards/demo && mkdir config widgets templates data
+~~~
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+</page>

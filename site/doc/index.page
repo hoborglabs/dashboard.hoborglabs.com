@@ -26,8 +26,9 @@
 				<size>side</size>
 				<navigation>
 					<page href="/doc" class="active">Introduction</page>
-					<page href="/doc/dev">Developers</page>
-					<page href="/doc/dev/write-widgets">Writing Widgets</page>
+					<page href="/doc/dev">For Developers</page>
+					<page href="/doc/dev/write-widgets">For PHP Developers</page>
+					<page href="/doc/dev/">For JS Developers</page>
 				</navigation>
 			</data>
 		</component>
@@ -48,13 +49,67 @@
 		<component name="paragraph">
 			<data>
 				<size>side</size>
-				<markdown file="./../includes/doc/about.intro.md" />
+				<markdown>
+## Hoborg Dashboard - what is it?
+
+It's FREE and open dashboard system writen by and for developers.
+				</markdown>
 			</data>
 		</component>
 		<component name="paragraph">
 			<data>
 				<size>content</size>
-				<markdown file="./../includes/doc/about.md" />
+				<markdown><![CDATA[
+### How, What, Where?
+
+**SimpleDashboard** is really SIMPLE. Each dashboard is based on JSON
+config file. It contains a template name and list of widgets. That is
+it! The simplest dashboard configuration can look like this:
+
+~~~
+{
+  "template": "hoborg",
+  "widgets": [
+    {
+      "template": "Hello &#123;{data.name}}!",
+      "data": {"name": "World"}
+    }
+  ]
+}
+~~~
+
+**SimpleDashboard** is split to 3 tiers: (a) client side  JavaScript 
+responsible for rendering and refreshing widget data, (b) HTML with 
+initial widget config objects, CSS and JS, and finally (c) server side
+PHP code for converting dashboard configuration into HTML and serving
+widget data over JSON or JSONP - you can of course serve data from any
+location, as long as your client or server can access it.
+
+
+
+
+### What's in the Box?
+
+Hoborglabs provides number of generic widgets and "Clients" for pulling
+data from **graphite, opsview, jenkins and mongo**. Also new Splunk 
+client is on it's way.
+
+Some widgets uses [d3js](http://d3js.org) for charts and graphs. Check
+it out, it's small but very powerful library.
+
+
+
+
+### No Push, Just JSONP Requests
+
+To keep things simple, widgets by default uses JSON/JSPONP to get data.
+You can configure how often each widget should refresh data using
+`tick` property.  
+Why JSONP? because it's simple and works cross domains. If you want to
+use push technology, simply extend HoborgWidget JS object and overwrite
+`startData` method.
+
+				]]></markdown>
 			</data>
 		</component>
 	</component>
@@ -66,13 +121,69 @@
 		<component name="paragraph">
 			<data>
 				<size>side</size>
-				<markdown file="./../includes/doc/install.intro.md" />
+				<markdown>
+## Installation
+
+There are multiple ways to install and use Simple Dashboard.
+
+Here is a [step-by-step](/doc/step-by-step-install) installation.
+				</markdown>
 			</data>
 		</component>
 		<component name="paragraph">
 			<data>
 				<size>content</size>
-				<markdown file="./../includes/doc/install.md" />
+				<markdown><![CDATA[
+### Composer
+
+A good way to install and maintain your dashboard is to use Composer.
+First, start with creating `composer.json` file with your dependencies.
+
+~~~
+{
+    "require": {
+        "php": ">=5.3.0",
+        "hoborglabs/dashboard": "*",
+        "hoborglabs/widgets": "*"
+    }
+}
+~~~
+
+If you don't have composer installed, simply install it by runnig
+
+~~~
+curl -sS https://getcomposer.org/installer | php
+~~~
+
+Now, install dashboard and default widgets by running 
+
+~~~
+php composer.phar install
+~~~
+
+That was easy! Now final bit - index.php
+
+~~~
+&lt;?php
+$rootPath = __DIR__ . '/..';
+require_once "{$rootPath}/vendor/autoload.php";
+
+$kernel = new \Hoborg\Dashboard\Kernel($rootPath, 'dev');
+$kernel->setDefaultParam('conf', 'demo');
+$kernel->handle(array_merge($_GET, $_POST));
+~~~
+
+We are almost done. The only thing missing is CSS and JS asstes.
+
+~~~
+ln -s vendor/hoborglabs/dashboard/build/dist/htdocs/static/styles/hoborglabs htdocs/static/styles/hoborglabs
+ln -s vendor/hoborglabs/dashboard/build/dist/htdocs/static/scripts/hoborglabs htdocs/static/scripts/hoborglabs
+~~~
+
+
+**Job done!**  
+Now you can customise your dashboard however you want. 
+				]]></markdown>
 			</data>
 		</component>
 	</component>
@@ -84,14 +195,26 @@
 		<component name="paragraph">
 			<data>
 				<size>side</size>
-				<markdown file="./../includes/doc/widget-content.intro.md" />
+				<markdown>
+## Production Environment
+				</markdown>
 			</data>
 		</component>
 		<component name="paragraph">
 			<data>
 				<size>content</size>
-				<markdown file="./../includes/doc/widget-content.md" />
+				<markdown>
+### So you like our Dashboard?
+
+If you like our Dashboard, and you want to deploy it globally in your
+company, you should consider installing DashboardCache. It changes the
+game a little bit. Now, all your widgets connects to cache, and it
+is your responsibility to keep that cache fresh by sending fresh data
+for each widget.
+
+				</markdown>
 			</data>
 		</component>
 	</component>
+
 </page>

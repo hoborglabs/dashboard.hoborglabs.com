@@ -1,0 +1,91 @@
+<page name="page">
+	<component name="google-analytics">
+		<data>
+			<enabled>0</enabled>
+			<account>UA-26727070-1</account>
+		</data>
+	</component>
+	<component name="header">
+		<data>
+			<navigation>
+				<page href="/">Home</page>
+				<page href="/doc" class="active">Documentation</page>
+				<page href="/demo">Demo</page>
+				<page href="/screenshots">Screenshots</page>
+			</navigation>
+		</data>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="navigation">
+			<data>
+				<size>side</size>
+				<navigation>
+					<page href="/doc">Introduction</page>
+					<page href="/doc/dev" class="active">For Developers</page>
+					<page href="/doc/dev/write-widgets">For PHP Developers</page>
+					<page href="/doc/dev/">For JS Developers</page>
+				</navigation>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<text><![CDATA[
+<h1>So, you call yourself a Developer?</h1>
+<p>... good, you will find here some fundamental information about dashboard and widgets.</p>
+				]]></text>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type></type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown><![CDATA[
+## Dashboard
+				]]></markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown><![CDATA[
+If you want to stop your dashboard, simple execute this javascript:
+`$('.dashboard .container').widgetManager('stop')`
+
+to start it again, run
+`$('.dashboard .container').widgetManager('stop')`
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+
+	<component name="body">
+		<data>
+			<type>highlight</type>
+		</data>
+		<component name="paragraph">
+			<data>
+				<size>side</size>
+				<markdown><![CDATA[
+## JS Widgets
+				]]></markdown>
+			</data>
+		</component>
+		<component name="paragraph">
+			<data>
+				<size>content</size>
+				<markdown><![CDATA[
+				]]></markdown>
+			</data>
+		</component>
+	</component>
+</page>
