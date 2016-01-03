@@ -4,9 +4,11 @@ Simple Dashboard is a mini-project written to bring into live a crazy vision of
 *Phobjects*. Idea born on a PHPNW 2011 conference - or to be more precise,
 on Saturday night, after few pints of free beer.
 
-But to be honest it is really simple dashboard which allows you to display 
-widgets from your local server and from external endpoints - it's all based 
+But to be honest it is really simple dashboard which allows you to display
+widgets from your local server and from external endpoints - it's all based
 on JSON.
+
+
 
 
 ## More on Dashboard Home Page
@@ -14,6 +16,13 @@ on JSON.
 Visit http://dashboard.hoborglabs.com/ for more details.
 
 For more technical info visit: http://dashboard.hoborglabs.com/doc
+
+
+
+
+## Local Development
+
+To preview the site locally simply run `make server`
 
 - - -
 

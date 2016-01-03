@@ -13,12 +13,12 @@
 
 	<component name="paragraph"
 		folder="components/modules/paragraph"
-		template="default.xsl" />
+		template="default" />
 	<component name="media-grid"
 		folder="components/modules/media-grid" />
 	<component name="navigation"
 		folder="components/modules/navigation"
-		template="default.xsl" />
+		template="default" />
 
 	<component name="google-analytics"
 		folder="components/modules/google/analytics" />

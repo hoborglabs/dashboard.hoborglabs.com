@@ -1,5 +1,5 @@
 <?php
-use Hoborg\Bundle\DisplayServiceBundle\Component\Component;
+use \Hoborg\DisplayService\Component\Component;
 include_once __DIR__ . '/markdown.php';
 
 class Paragraph extends Component {

@@ -6,6 +6,9 @@
 .settings/
 *.swp
 
+
+
+
 ##
 # Configuration
 #
@@ -17,10 +20,16 @@
 /conf/*/*.yml
 !/conf/*/*.default.yml
 
+
+
+
 ##
 # Logs
 #
 /logs
+
+
+
 
 ##
 # Build, Dev, Test
@@ -29,3 +38,6 @@
 /out
 /build.properties
 /build.*.properties
+/displayService.phar
+/.make
+/dashboard.hoborglabs.com-*.tgz
